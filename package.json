@@ -2,10 +2,10 @@
   "name": "untitled3",
   "version": "0.0.0",
   "scripts": {
-    "ng": "node --max_old_space_size=10000 ./node_modules/@angular/cli/bin/ng",
-    "ng-high-memory": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --configuration=prod",
+    "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
+    "build-serve": "node --max_old_space_size=8048 ./node_modules/@angular/cli/bin/ng serve",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
