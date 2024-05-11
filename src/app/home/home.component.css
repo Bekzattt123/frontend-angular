@@ -1,0 +1,128 @@
+
+.hero {
+  background-image: url('hom2.jpg'); /* Замените 'home2.png' на имя вашего файла изображения */
+  background-size: cover; /* Обеспечьте покрытие всего элемента фоновым изображением */
+  background-repeat: no-repeat; /* Предотвратите повторение фонового изображения */
+  background-position: center; /* Центрируйте фоновое изображение */
+  background-color: rgba(0, 0, 0, 0.5); /* Установите прозрачный черный цвет фона */
+  color: rgba(0, 0, 0, 0.86); /* Установите цвет текста белым с полной непрозрачностью */
+  padding: 350px 40px 300px; /* Измените отступы по мере необходимости (сверху, справа, снизу, слева) */
+  font-size: 28px; /* Измените размер шрифта */
+  font-family: 'Arial', sans-serif; /* Измените семейство шрифтов */
+  font-weight: bold; /* Измените настройки шрифта */
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5); /* Добавьте тень текста для лучшей читаемости */
+  margin-top: 50px; /* Добавьте отступ сверху, чтобы создать пространство между разделом героя и навигацией */
+  text-align: center;
+  border-radius: 20px;
+margin:-100px;
+  opacity: 0.8;
+
+}
+.heroes{opacity:1 ;}
+
+
+
+
+
+.features {
+  margin-top: 20px;
+}
+
+.feature {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.feature h3 {
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.learn-more {
+  display: inline-block;
+  padding: 10px 20px; /* Adjust padding as needed */
+  border: 2px solid #007bff; /* Border color */
+  border-radius: 5px;
+  text-decoration: none; /* Remove underline */
+  color: #ffffff; /* Text color */
+  transition: background-color 0.3s, color 0.3s; /* Add transition for hover effect */
+  background-color: #007bff;
+}
+
+.learn-more:hover {
+  background-color: #1e30d0; /* Change background color on hover */
+  color: white; /* Change text color on hover */
+}
+
+.subscriptions{
+  margin-bottom:50px
+}
+.subscriptions {
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* Ensure all items stretch vertically */
+}
+
+.subscription-card {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* Align content vertically */
+}
+
+.free {
+  background-color: lightgreen;
+
+}
+
+.monthly {
+  background-color: lightblue;
+
+}
+
+.yearly {
+  background-color: lightcoral;
+
+}
+
+.testimonials {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.testimonials h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.testimonial {
+  background-color: #ffffff;
+  padding: 15px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+}
+
+.testimonial p {
+  color: #666666;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.testimonial strong {
+  color: #333;
+}

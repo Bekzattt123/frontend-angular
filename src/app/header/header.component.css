@@ -1,0 +1,57 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.86);
+  background: linear-gradient(to right, rgba(0, 123, 255, 0), rgba(255, 255, 255, 0)); /* Градиентный фон синего и белого цветов */
+  font-size: 18px; /* Размер шрифта */
+}
+
+nav a {
+  color: rgba(0, 0, 0, 0.86);
+  text-decoration: none;
+  font-family: Arial, sans-serif; /* Семейство шрифтов */
+  font-weight: bold;
+}
+nav-item{
+  font-weight: bold;
+}
+nav a:focus {
+  text-decoration: underline; /* Добавляем подчеркивание для ссылок в фокусе */
+}
+
+nav a:not(:focus) {
+  text-decoration: none; /* Убираем подчеркивание для всех других ссылок */
+}
+
+
+
+.login-button-container {
+  display: flex;
+  align-items: center;
+}
+
+.login-button-container button {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.86);
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px; /* Отступы */
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  font-size: 16px; /* Размер шрифта */
+}
+
+.login-button-container button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.register-button {
+  margin-left: 20px; /* Отступ слева для кнопки регистрации */
+  color: rgba(0, 0, 0, 0.15); /* Цвет для лучшей видимости */
+  font-size: 16px; /* Размер шрифта */
+}
+
+.spacer {
+  flex: 50px; /* Расширение для заполнения оставшегося пространства */
+}

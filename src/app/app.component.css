@@ -1,0 +1,38 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+
+footer {
+  margin-top: auto;
+}
+
+
+.headers {
+  width: 100%;
+  position: fixed; /* Fix the header position */
+  top: 0; /* Place the header at the top of the page */
+  left: 0; /* Align the header to the left */
+  z-index: 999; /* Ensure the header is above other content */
+  background-color: rgba(0, 123, 255, 0); /* Adjust background color as needed */
+  color: white; /* Adjust text color as needed */
+
+}
+/* Assuming your footer has a class named 'footer' */
+.footer {
+  width: 100%;
+  height: auto;
+  position: fixed; /* Fix the footer position */
+  bottom: 0; /* Place the footer at the bottom of the page */
+  left: 0; /* Align the footer to the left */
+  z-index: 999; /* Ensure the footer is above other content */
+  background-color: #007bff; /* Adjust background color as needed */
+  color: white; /* Adjust text color as needed */
+  padding: 0px; /* Add padding as needed */
+}
+.main-content{
+  margin: 40px;
+}

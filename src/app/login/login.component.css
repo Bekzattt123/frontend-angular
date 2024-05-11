@@ -1,0 +1,210 @@
+/* Set white background for the entire page */
+body {
+  background-color: #fff;
+}
+
+/* Container for the form */
+.login-container {
+  width: 300px;
+  height: 300px; /* Set a fixed height for vertical centering */
+  position: absolute; /* Position the container */
+  top: 50%; /* Move the container 50% down from the top */
+  left: 50%; /* Move the container 50% from the left */
+  transform: translate(-50%, -50%); /* Center the container both horizontally and vertically */
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f8f9fa; /* Change the background color of the login container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title style */
+.login-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Input fields */
+.login-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Button style */
+.login-button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+/* Error message */
+.login-error {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 5px;
+}
+.social-icons {
+  margin-top: 20px; /* Adjust spacing */
+}
+
+.social-icon {
+  display: inline-block;
+  margin-right: 10px; /* Adjust spacing between icons */
+  color: #333; /* Set icon color */
+  font-size: 24px; /* Set icon size */
+}
+
+.social-icon:hover {
+  color: #007bff; /* Change color on hover */
+}
+.error-message {
+  color: red; /* Set color for error message */
+  margin-top: 10px; /* Add some space between inputs and error message */
+}
+
+/*-------------------------------------------------------------------------------------
+*/
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap'); /* Container for the form */
+.register-container {
+  width: 400px;
+  margin: 40px auto; /* Set margin to auto for centering */
+  padding: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: rgba(43, 135, 255, 0.29);
+}
+
+
+/* Title style */
+.register-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Input fields */
+.register-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+/* Button style */
+.register-button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.register-button:hover {
+  background-color: #0056b3;
+}
+/*
+**********************************************************************
+ */
+
+
+.wrapper{
+  position: relative;
+  max-width: 430px;
+  width: 100%;
+  background: #fff;
+  padding: 34px;
+  border-radius: 6px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+.wrapper h2{
+  position: relative;
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+}
+.wrapper h2::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 28px;
+  border-radius: 12px;
+  background: #4070f4;
+}
+.wrapper form{
+  margin-top: 30px;
+}
+.wrapper form .input-box{
+  height: 52px;
+  margin: 18px 0;
+}
+form .input-box input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding: 0 15px;
+  font-size: 17px;
+  font-weight: 400;
+  color: #333;
+  border: 1.5px solid #C7BEBE;
+  border-bottom-width: 2.5px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+.input-box input:focus,
+.input-box input:valid{
+  border-color: #4070f4;
+}
+form .policy{
+  display: flex;
+  align-items: center;
+}
+form h3{
+  color: #707070;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 10px;
+}
+.input-box.button input{
+  color: #fff;
+  letter-spacing: 1px;
+  border: none;
+  background: #4070f4;
+  cursor: pointer;
+}
+.input-box.button input:hover{
+  background: #0e4bf1;
+}
+form .text h3{
+  color: #333;
+  width: 100%;
+  text-align: center;
+}
+form .text h3 a{
+  color: #4070f4;
+  text-decoration: none;
+}
+form .text h3 a:hover {
+  text-decoration: underline;
+}

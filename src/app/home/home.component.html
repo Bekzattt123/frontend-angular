@@ -1,0 +1,83 @@
+<div class="homes">
+
+  <section class="hero"><div class="heroes">
+    <h2>Your Health, Our Priority</h2>
+    <p class="heros">Get personalized medical services tailored just for you.</p>
+    <a routerLink="/about" class="btn learn-more">Learn More</a></div>
+  </section>
+
+  <section class="container features">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="feature">
+          <h3>Online Consultation</h3>
+          <p>Connect with doctors and specialists online for consultations.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature">
+          <h3>Medical Records</h3>
+          <p>Access and manage your medical records securely online.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature">
+          <h3>Appointment Booking</h3>
+          <p>Book appointments with healthcare providers hassle-free.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container testimonials">
+    <h2>Testimonials</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="testimonial">
+          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada nulla a felis lacinia, eget vulputate urna convallis."</p>
+          <p><strong>- John Doe</strong></p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="testimonial">
+          <p>"Nulla ac magna ullamcorper, venenatis nisi vitae, euismod nisl. Suspendisse potenti. Sed nec velit at mi rhoncus vestibulum."</p>
+          <p><strong>- Jane Doe</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="container subscriptions">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="subscription-card free">
+          <h3>Free</h3>
+          <p>Basic features included</p>
+          <p>Access to limited services</p>
+          <p></p>
+          <p></p>
+          <button class="btn btn-primary " (click)="subscribe('free')">Subscribe</button>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="subscription-card monthly">
+          <h3>Monthly Subscription</h3>
+          <p>Unlock all features for 1,299.00 KZT/month (Standard) / 1,999.00 KZT/month (Pro)</p>
+          <p>Access to all services</p>
+          <button class="btn btn-primary" (click)="subscribe('monthly')">Subscribe</button>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="subscription-card yearly">
+          <h3>Annual Subscription</h3>
+          <p>Unlock all features for 12,990.00 KZT/year (Standard) / 19,990.00 KZT/year (Pro)</p>
+          <p>Save 990.00 KZT compared to monthly</p>
+          <button class="btn btn-primary" (click)="subscribe('yearly')">Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</div>
+

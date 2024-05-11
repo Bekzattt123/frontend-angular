@@ -1,0 +1,22 @@
+<div class="register-container">
+  <h2 class="register-title">Login</h2>
+  <form>
+    <div class="input-box">
+      <input class="register-input" type="email" placeholder="Email" [(ngModel)]="email" name="email" required>
+    </div>
+    <div class="input-box">
+      <input class="register-input" type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
+    </div>
+    <div class="input-box button">
+      <button class="register-button" (click)="login()">Login</button>
+    </div>
+  </form>
+
+  <div class="text">
+    <h5>Don't have an account yet? <a href="#">Register now</a></h5>
+  </div>
+</div>
+
+
+
+

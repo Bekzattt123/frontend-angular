@@ -1,0 +1,15 @@
+<div class="pdf-downloader" (drop)="onDrop($event)" (dragover)="onDragOver($event)">
+  <input type="file" (change)="handleFileInput($event)" />
+  <p>Или перетащите файл сюда</p>
+</div>
+
+
+
+
+<div class="result-card">
+  <h3>Результат</h3>
+  <div class="result-content">
+    <!-- Здесь может быть ваш результат -->
+    <p>Пример текста или содержимого карты</p>
+  </div>
+</div>

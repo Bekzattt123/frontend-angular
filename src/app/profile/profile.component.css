@@ -1,0 +1,85 @@
+.profile-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.profile-container h2 {
+  margin-top: 0;
+  color: #ffe3dc;
+}
+
+.profile-container p {
+  margin: 5px 0;
+  color: #ffe3dc;
+}
+.card {
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: rgba(30, 48, 208, 0.29);
+  background-clip: border-box;
+  border: 1px solid transparent;
+  border-radius: .75rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);
+
+}
+.me-2 {
+  margin-right: .5rem!important;
+}
+.container{
+  margin:50px;
+}
+.container,
+.card,
+.card-body,
+.text-secondary,
+.input-box,
+.input-box input,
+h4,
+h6,
+p,
+.btn {
+  color: #ffffff; /* Установка белого цвета текста */
+}
+
+.body-container {
+  position: relative; /* Установим позицию для контейнера */
+  min-height: 100vh;
+  margin-top: 70px /* Сделаем контейнер высотой не менее чем высота видимого окна браузера */
+}
+
+.body-container::before {
+  content: '';
+  position: absolute;
+  top: -50px; /* Значение, на которое нужно поднять фоновое изображение */
+  left: -50px; /* Значение, на которое нужно сдвинуть фоновое изображение влево */
+  right: -50px; /* Значение, на которое нужно сдвинуть фоновое изображение вправо */
+  bottom: -50px; /* Значение, на которое нужно опустить фоновое изображение */
+  background-image: url('back1.jpeg'); /* Замените 'back.jpg' на URL вашего фонового изображения */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1; /* Установим z-index, чтобы фоновое изображение находилось за всем остальным контентом */
+}
+
+
+.container,
+.card,
+.card-body,
+.text-secondary,
+.input-box,
+.input-box input,
+h4,
+h6,
+p,
+.btn {
+  color: rgb(255, 227, 220); /* Установка белого цвета текста */
+}
+
