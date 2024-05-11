@@ -1,0 +1,8 @@
+services:
+  - name: medical-website
+    type: web
+    buildCommand: npm install && ng build --prod
+    startCommand: npm start
+    env:
+      - key: NODE_ENV
+        value: production
