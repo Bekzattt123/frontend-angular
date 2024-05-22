@@ -1,6 +1,4 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import * as pdfjsLib from 'pdfjs-dist/build/pdf';
-import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.entry';
 
 @Component({
   selector: 'app-pdfdownloader',
@@ -77,6 +75,9 @@ export class PdfdownloaderComponent {
   }
 
   async extractTextFromPDF(pdfData: ArrayBuffer): Promise<void> {
+    const pdfjsLib = await import('pdfjs-dist/build/pdf');
+    const pdfjsWorker = await import('pdfjs-dist/build/pdf.worker.entry');
+
     pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
     const loadingTask = pdfjsLib.getDocument({ data: pdfData });
@@ -97,10 +98,10 @@ export class PdfdownloaderComponent {
       const lines = pageText.split('\n');
       lines.forEach(line => {
         this.keywords.forEach(keyword => {
-          const regex = new RegExp(`(\\d+(?:[.,]\\d+)?)\\s+${keyword}`);
+          const regex = new RegExp(`(\\d*\\.?\\d+\\s*)${keyword}`);
           const match = regex.exec(line);
           if (match) {
-            extractedText.push(`${keyword} ${match[1].replace(',', '.')}`);
+            extractedText.push(`${keyword} ${match[1].trim()}`);
           }
         });
       });
