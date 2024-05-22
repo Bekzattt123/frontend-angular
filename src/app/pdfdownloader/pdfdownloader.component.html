@@ -1,15 +1,20 @@
-<div class="pdf-downloader" (drop)="onDrop($event)" (dragover)="onDragOver($event)">
-  <input type="file" (change)="handleFileInput($event)" />
-  <p>Или перетащите файл сюда</p>
+<!-- pdfdownloader.component.html -->
+
+<div class="upload-container"
+     (dragover)="onDragOver($event)"
+     (dragleave)="onDragLeave($event)"
+     (drop)="onDrop($event)">
+  <input type="file" (change)="handleFileInput($event)">
+  <p>Drag and drop a PDF file here, or click to select a file</p>
+</div>
+
+<div *ngIf="pdfText.length > 0" class="pdf-text-container">
+  <ul>
+    <li *ngFor="let text of pdfText">{{ text }}</li>
+  </ul>
 </div>
 
 
 
 
-<div class="result-card">
-  <h3>Результат</h3>
-  <div class="result-content">
-    <!-- Здесь может быть ваш результат -->
-    <p>Пример текста или содержимого карты</p>
-  </div>
-</div>
+

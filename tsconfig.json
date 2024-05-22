@@ -15,20 +15,24 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "ES2022", // Adjusted to ES2017 for compatibility
-    "module": "ESNext", // Adjusted to ESNext for compatibility
+    "target": "ES2022",
+    "module": "ESNext",
     "useDefineForClassFields": false,
     "lib": [
       "ESNext",
       "dom"
     ],
-    "esModuleInterop": true, // Enable esModuleInterop
-    "allowSyntheticDefaultImports": true // Enable allowSyntheticDefaultImports
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "include": [
+    "src/**/*.d.ts",
+    "src/types/**/*.d.ts" // Добавьте эту строку
+  ]
 }
