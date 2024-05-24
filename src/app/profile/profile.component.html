@@ -1,172 +1,74 @@
-<div class="bodd"></div>
-<div *ngIf="userData" class="body-container">
-  <div class="main-body">
-    <div class="row">
-      <div class="col-lg-4">
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex flex-column align-items-center text-center">
-              <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
-              <div class="mt-3">
-                <h4>{{ userData.fullName }}</h4>
-              </div>
+<div class="container profile-container">
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex flex-column align-items-center text-center">
+            <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+            <div class="mt-3">
+              <h4>{{ userData.fullName }}</h4>
             </div>
-
-
           </div>
         </div>
       </div>
-      <div class="col-lg-8">
-        <div class="card">
-          <div class="card-body">
-            <div class="row mb-3">
-              <div class="col-sm-3">
-                <h6 class="mb-0">Full Name</h6>
-              </div>
-              <div class="col-sm-9 text-secondary">
-                <input type="text" class="form-control" value="{{ userData.fullName }}">
-              </div>
+    </div>
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-body">
+          <div class="row mb-3">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Full Name</h6>
             </div>
-            <div class="row mb-3">
-              <div class="col-sm-3">
-                <h6 class="mb-0">Email</h6>
-              </div>
-              <div class="col-sm-9 text-secondary">
-                <input type="text" class="form-control" value="{{ userData.email }}">
-              </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" value="{{ userData.fullName }}">
             </div>
-            <div class="row mb-3">
-              <div class="col-sm-3">
-                <h6 class="mb-0">Phone</h6>
-              </div>
-              <div class="col-sm-9 text-secondary">
-                <input type="text" class="form-control" value="{{ userData.contact }}">
-              </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Email</h6>
             </div>
-            <div class="row mb-3">
-              <div class="col-sm-3">
-                <h6 class="mb-0">Gender</h6>
-              </div>
-              <div class="col-sm-9 text-secondary">
-                <select class="form-select" [(ngModel)]="userData.gender" name="gender" >
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" value="{{ userData.email }}">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Phone</h6>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" value="{{ userData.contact }}">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Gender</h6>
+            </div>
+            <div class="col-sm-9">
+              <select class="form-select" [(ngModel)]="userData.gender" name="gender">
+                <option value="men">Male</option>
+                <option value="women">Female</option>
+              </select>
+            </div>
+          </div>
 
-                </select>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-sm-3"></div>
-              <div class="col-sm-9 text-secondary">
-                <input type="button" class="btn btn-primary px-4" value="Save Changes">
-              </div>
+          <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-9">
+              <input type="button" class="btn px-4" value="Save Changes">
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="d-flex align-items-center mb-3">Blood Analysis Progress</h5>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="d-flex align-items-center mb-3">Blood Analysis Progress</h5>
 
-                <!-- Hemoglobin (HGB) -->
-                <p>Hemoglobin (HGB)</p>
-                <div class="progress mb-3" style="height: 15px;">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
-                </div>
+          <!-- Прогресс-бары для анализа крови -->
+          <!-- Ваши прогресс-бары здесь -->
 
-                <!-- Red Blood Cells (RBC) -->
-                <p>Red Blood Cells (RBC)</p>
-                <div class="progress mb-3" style="height: 15px;">
-                  <div class="progress-bar bg-danger" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
-                </div>
-
-                <!-- Hematocrit (HCT) -->
-                <p>Hematocrit (HCT)</p>
-                <div class="progress mb-3" style="height: 15px;">
-                  <div class="progress-bar bg-success" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
-                </div>
-
-                <!-- Platelets (PLT) -->
-                <p>Platelets (PLT)</p>
-                <div class="progress mb-3" style="height: 15px;">
-                  <div class="progress-bar bg-warning" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
-                </div>
-
-                <!-- White Blood Cells (WBC) -->
-                <p>White Blood Cells (WBC)</p>
-                <div class="progress mb-3" style="height: 15px;">
-                  <div class="progress-bar bg-info" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
-                </div>
-
-                <!-- Eosinophils (EOS%) -->
-                <p>Eosinophils (EOS%)</p>
-                <div class="progress mb-3" style="height: 15px;">
-                  <div class="progress-bar bg-secondary" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">65%</div>
-                </div>
-
-                <!-- Basophils -->
-                <p>Basophils</p>
-                <div class="progress mb-3" style="height: 15px;">
-                  <div class="progress-bar bg-dark" role="progressbar" style="width: 55%;" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">55%</div>
-                </div>
-
-                <!-- Lymphocytes (LYM%) -->
-                <p>Lymphocytes (LYM%)</p>
-                <div class="progress mb-3" style="height: 15px;">
-                  <div class="progress-bar bg-success" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
-                </div>
-
-                <!-- Monocytes (MON%) -->
-                <p>Monocytes (MON%)</p>
-                <div class="progress mb-3" style="height: 15px;">
-                  <div class="progress-bar bg-warning" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
-                </div>
-
-                <!-- Erythrocyte Sedimentation Rate (ESR) -->
-                <p>Erythrocyte Sedimentation Rate (ESR)</p>
-                <div class="progress mb-3" style="height: 15px;">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
-                </div>
-
-                <!-- Neutrophils -->
-                <p>Neutrophils</p>
-                <div class="progress mb-3" style="height: 15px;">
-                  <div class="progress-bar bg-danger" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">65%</div>
-                </div>
-
-                <!-- Mean Corpuscular Hemoglobin Concentration (MCHC) -->
-                <p>Mean Corpuscular Hemoglobin Concentration (MCHC)</p>
-                <div class="progress mb-3" style="height: 15px;">
-                  <div class="progress-bar bg-success" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
-                </div>
-
-                <!-- Mean Corpuscular Volume (MCV) -->
-                <p>Mean Corpuscular Volume (MCV)</p>
-                <div class="progress mb-3" style="height: 15px;">
-                  <div class="progress-bar bg-warning" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
-                </div>
-
-                <!-- Mean Corpuscular Hemoglobin (MCH) -->
-                <p>Mean Corpuscular Hemoglobin (MCH)</p>
-                <div class="progress mb-3" style="height: 15px;">
-                  <div class="progress-bar bg-info" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
-                </div>
-
-                <!-- Plateletcrit (PCT) -->
-                <p>Plateletcrit (PCT)</p>
-                <div class="progress" style="height: 15px;">
-                  <div class="progress-bar bg-secondary" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
-                </div>
-
-              </div>
-            </div>
-          </div>
         </div>
-
-
       </div>
     </div>
   </div>
 </div>
+

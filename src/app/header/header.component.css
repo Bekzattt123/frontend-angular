@@ -1,57 +1,66 @@
-nav {
+/* header.component.css */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Убираем горизонтальный скролл */
+}
+
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: rgba(0, 0, 0, 0.86);
-  background: linear-gradient(to right, rgba(0, 123, 255, 0), rgba(255, 255, 255, 0)); /* Градиентный фон синего и белого цветов */
-  font-size: 18px; /* Размер шрифта */
+  background: linear-gradient(to right, rgba(0, 123, 255, 0), rgba(255, 255, 255, 0));
+  padding: 10px;
+  position: fixed; /* Фиксированное положение */
+  top: 0; /* Размещение вверху страницы */
+  left: 0; /* Выравнивание по левому краю */
+  width: 100%; /* Ширина на 100% */
+  z-index: 999; /* Обеспечиваем нахождение над остальным содержимым */
 }
 
-nav a {
-  color: rgba(0, 0, 0, 0.86);
-  text-decoration: none;
-  font-family: Arial, sans-serif; /* Семейство шрифтов */
-  font-weight: bold;
-}
-nav-item{
-  font-weight: bold;
-}
-nav a:focus {
-  text-decoration: underline; /* Добавляем подчеркивание для ссылок в фокусе */
-}
-
-nav a:not(:focus) {
-  text-decoration: none; /* Убираем подчеркивание для всех других ссылок */
-}
-
-
-
-.login-button-container {
+.menu-items {
   display: flex;
-  align-items: center;
+  gap: 15px;
+color:black;
+  font-family: "Times New Roman", serif;
+  font-size:20px;
+
+  font-color:black;
+
 }
 
-.login-button-container button {
-  background-color: transparent;
-  color: rgba(0, 0, 0, 0.86);
+.navbar-toggler {
+  display: none;
+  background: none;
   border: none;
-  cursor: pointer;
-  padding: 8px 12px; /* Отступы */
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-  font-size: 16px; /* Размер шрифта */
+  font-size: 24px;
 }
 
-.login-button-container button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+@media (max-width: 910px) {
+  .menu-items {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0);
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    padding: 10px;
+    border: 1px solid #2b87ff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .menu-items.active {
+    display: flex;
+  }
+
+  .navbar-toggler {
+    display: block;
+  }
 }
 
-.register-button {
-  margin-left: 20px; /* Отступ слева для кнопки регистрации */
-  color: rgba(0, 0, 0, 0.15); /* Цвет для лучшей видимости */
-  font-size: 16px; /* Размер шрифта */
-}
 
-.spacer {
-  flex: 50px; /* Расширение для заполнения оставшегося пространства */
-}

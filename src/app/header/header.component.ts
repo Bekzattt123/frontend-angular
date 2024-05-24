@@ -1,3 +1,4 @@
+// header.component.ts
 import { Component } from '@angular/core';
 import { AuthService } from "../auth.service";
 import { Router } from "@angular/router";
@@ -8,6 +9,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  menuActive = false;
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -20,7 +22,10 @@ export class HeaderComponent {
     this.router.navigate(['/login']); // Navigate to login page after logout
   }
 
-
-
+  toggleMenu(): void {
+    this.menuActive = !this.menuActive;
+  }
 }
+
+
 

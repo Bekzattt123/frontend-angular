@@ -1,85 +1,67 @@
-.profile-container {
+/* Общие стили */
+body {
   background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  color: #333; /* Черный или темный цвет текста для лучшей читаемости */
+}
+
+.profile-container {
+  background-color: #fff; /* Белый фон контейнера профиля */
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Тень для контейнера */
   margin-top: 20px;
 }
 
-.profile-container h2 {
+.profile-container h4 {
   margin-top: 0;
-  color: #ffe3dc;
+  color: #333; /* Черный или темный цвет для заголовков */
 }
 
 .profile-container p {
   margin: 5px 0;
-  color: #ffe3dc;
+  color: #666; /* Цвет для обычного текста */
 }
+
 .card {
+  background-color: #fff; /* Белый фон карточек */
+  border: 1px solid #e0e0e0; /* Светло-серая рамка */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Небольшая тень */
+  margin-bottom: 20px;
+}
 
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: rgba(30, 48, 208, 0.29);
-  background-clip: border-box;
-  border: 1px solid transparent;
-  border-radius: .75rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);
+.card-body {
+  padding: 20px;
+}
 
-}
-.me-2 {
-  margin-right: .5rem!important;
-}
-.container{
-  margin:50px;
-}
-.container,
-.card,
-.card-body,
-.text-secondary,
-.input-box,
-.input-box input,
-h4,
-h6,
-p,
 .btn {
-  color: #ffffff; /* Установка белого цвета текста */
+  background-color: #007bff; /* Синий цвет для кнопок */
+  color: #fff; /* Белый цвет текста кнопок */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.body-container {
-  position: relative; /* Установим позицию для контейнера */
-  min-height: 100vh;
-  margin-top: 70px /* Сделаем контейнер высотой не менее чем высота видимого окна браузера */
+.btn:hover {
+  background-color: #0056b3; /* Изменение цвета при наведении */
 }
 
-.body-container::before {
-  content: '';
-  position: absolute;
-  top: -50px; /* Значение, на которое нужно поднять фоновое изображение */
-  left: -50px; /* Значение, на которое нужно сдвинуть фоновое изображение влево */
-  right: -50px; /* Значение, на которое нужно сдвинуть фоновое изображение вправо */
-  bottom: -50px; /* Значение, на которое нужно опустить фоновое изображение */
-  background-image: url('back1.jpeg'); /* Замените 'back.jpg' на URL вашего фонового изображения */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: -1; /* Установим z-index, чтобы фоновое изображение находилось за всем остальным контентом */
+/* Стили для прогресс-баров */
+.progress {
+  height: 20px;
+  margin-bottom: 10px;
 }
 
-
-.container,
-.card,
-.card-body,
-.text-secondary,
-.input-box,
-.input-box input,
-h4,
-h6,
-p,
-.btn {
-  color: rgb(255, 227, 220); /* Установка белого цвета текста */
+.progress-bar {
+  border-radius: 5px;
 }
 
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+  .col-lg-4 {
+    margin-bottom: 20px; /* Добавление отступа между карточками в мобильной версии */
+  }
+}

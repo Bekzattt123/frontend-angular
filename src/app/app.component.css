@@ -1,38 +1,38 @@
+/* app.component.css */
+
 .app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  width: 100%;
 }
-
-
-
-footer {
-  margin-top: auto;
-}
-
 
 .headers {
   width: 100%;
-  position: fixed; /* Fix the header position */
-  top: 0; /* Place the header at the top of the page */
-  left: 0; /* Align the header to the left */
-  z-index: 999; /* Ensure the header is above other content */
-  background-color: rgba(0, 123, 255, 0); /* Adjust background color as needed */
-  color: white; /* Adjust text color as needed */
-
+  position: fixed; /* Фиксированное положение */
+  top: 0; /* Размещение вверху страницы */
+  left: 0; /* Выравнивание по левому краю */
+  z-index: 999; /* Обеспечиваем нахождение над остальным содержимым */
+  background-color: rgba(0, 123, 255, 0); /* Настраиваем цвет фона */
+  color: white; /* Настраиваем цвет текста */
+  padding: 10px; /* Добавляем отступ */
 }
-/* Assuming your footer has a class named 'footer' */
+
+.main-content {
+  flex: 1;
+  margin-top: 70px; /* Учитываем высоту фиксированного хедера */
+  padding: 20px;
+}
+
 .footer {
   width: 100%;
-  height: auto;
-  position: fixed; /* Fix the footer position */
-  bottom: 0; /* Place the footer at the bottom of the page */
-  left: 0; /* Align the footer to the left */
-  z-index: 999; /* Ensure the footer is above other content */
-  background-color: #007bff; /* Adjust background color as needed */
-  color: white; /* Adjust text color as needed */
-  padding: 0px; /* Add padding as needed */
+  position: fixed; /* Фиксированное положение */
+  bottom: 0; /* Размещение внизу страницы */
+  left: 0; /* Выравнивание по левому краю */
+  z-index: 999; /* Обеспечиваем нахождение над остальным содержимым */
+  background-color: #007bff; /* Настраиваем цвет фона */
+  color: white; /* Настраиваем цвет текста */
+  text-align: center;
+  padding: 10px 0; /* Добавляем отступ */
 }
-.main-content{
-  margin: 40px;
-}
+
