@@ -14,7 +14,7 @@ app.get('*', (req, res) => {
 });
 
 // Запуск Express приложения на порту 8080
-const port = process.env.PORT || 10000;
+const port = process.env.PORT || 4200;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
