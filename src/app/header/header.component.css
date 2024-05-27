@@ -40,7 +40,7 @@ color:black;
   font-size: 24px;
 }
 
-@media (max-width: 910px) {
+@media (max-width: 990px) {
   .menu-items {
     display: none;
     flex-direction: column;
