@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { ProfileComponent } from './profile/profile.component';
 import {NgOptimizedImage} from "@angular/common";
 import { PdfdownloaderComponent } from './pdfdownloader/pdfdownloader.component';
+import {DataUploadService} from "./data-upload.service";
 
 
 
@@ -35,7 +36,7 @@ import { PdfdownloaderComponent } from './pdfdownloader/pdfdownloader.component'
     AppRoutingModule,
     NgOptimizedImage
   ],
-  providers: [],
+  providers: [DataUploadService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
