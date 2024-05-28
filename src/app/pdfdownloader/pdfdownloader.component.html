@@ -1,5 +1,3 @@
-<!-- pdfdownloader.component.html -->
-
 <div class="upload-container"
      (dragover)="onDragOver($event)"
      (dragleave)="onDragLeave($event)"
@@ -9,9 +7,14 @@
 </div>
 
 <div *ngIf="pdfText.length > 0" class="pdf-text-container">
-  <ul>
-    <li *ngFor="let text of pdfText">{{ text }}</li>
-  </ul>
+  <button (click)="uploadPdfData()">Upload Data</button>
+</div>
+
+<div *ngIf="assessmentResult" class="assessment-result">
+  <h3>Assessment Result</h3>
+  <p>ID: {{ assessmentResult.id }}</p>
+  <p>Rating: {{ assessmentResult.rating }}</p>
+  <p>Comments: {{ assessmentResult.comments }}</p>
 </div>
 
 

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { DataUploadService } from '../data-upload.service';
-import { HttpErrorResponse } from '@angular/common/http'; // Import HttpErrorResponse
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-pdfdownloader',
@@ -10,6 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http'; // Import HttpErrorRes
 export class PdfdownloaderComponent {
   @Output() pdfUploaded = new EventEmitter<File>();
   pdfText: string[] = [];
+  assessmentResult: any = null;
   keywords: string[] = [
     'Гемоглобин', 'Эритроциты', 'Цветной показатель', 'Гематокрит', 'Тромбоциты',
     'Лейкоциты', 'Эозинофилы', 'Базофилы', 'Лимфоциты', 'Моноциты',
@@ -63,7 +64,6 @@ export class PdfdownloaderComponent {
         const pdfData = e.target?.result as ArrayBuffer;
         if (pdfData) {
           await this.extractTextFromPDF(pdfData);
-          await this.uploadPdfData(); // Upload extracted data to server
           this.pdfUploaded.emit(file);
         }
       };
@@ -195,13 +195,8 @@ export class PdfdownloaderComponent {
 
     try {
       const response = await this.dataUploadService.uploadTestResults(testData).toPromise();
-      // Check for successful response
-      if (response && typeof response === 'object' && response.text === "The data has been processed successfully!") {
-        alert('Test results uploaded successfully.');
-      } else {
-        console.error('Unexpected server response:', response);
-        alert('Server error occurred. Please try again later.');
-      }
+      alert(response); // Show server response text
+      await this.fetchLatestAssessment(); // Fetch the latest assessment result
     } catch (error) {
       this.handleError(error); // Handle the error here
     }
@@ -209,6 +204,7 @@ export class PdfdownloaderComponent {
 
   private handleError(error: any): void {
     if (error instanceof HttpErrorResponse) {
+      console.error('HttpErrorResponse:', error);
       if (error.error instanceof ErrorEvent) {
         console.error('An error occurred:', error.error.message);
         alert('An error occurred on the client side or network.');
@@ -222,8 +218,6 @@ export class PdfdownloaderComponent {
           alert('Unauthorized. Please login again.');
         } else if (error.status === 404) {
           alert('Resource not found.');
-        } else if(error.status === 200) {
-          alert('The data has been processed successfully!');
         }
       }
     } else {
@@ -232,4 +226,18 @@ export class PdfdownloaderComponent {
     }
   }
 
+  private async fetchLatestAssessment(): Promise<void> {
+    try {
+      const idList = await this.dataUploadService.getAssessmentList().toPromise();
+      console.log('Assessment ID List:', idList); // Add log
+      if (idList && idList.length > 0) {
+        const latestId = Math.max(...idList); // Get the latest ID
+        console.log('Latest Assessment ID:', latestId); // Add log
+        this.assessmentResult = await this.dataUploadService.getAssessmentResult(latestId).toPromise();
+        console.log('Latest Assessment Result:', this.assessmentResult); // Add log
+      }
+    } catch (error) {
+      this.handleError(error);
+    }
+  }
 }

@@ -1,67 +1,37 @@
-/* Общие стили */
-body {
-  background-color: #f9f9f9;
-  font-family: Arial, sans-serif;
-  color: #333; /* Черный или темный цвет текста для лучшей читаемости */
-}
-
 .profile-container {
-  background-color: #fff; /* Белый фон контейнера профиля */
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Тень для контейнера */
   margin-top: 20px;
 }
 
-.profile-container h4 {
-  margin-top: 0;
-  color: #333; /* Черный или темный цвет для заголовков */
+.card-header {
+  background-color: #f8f9fa;
 }
 
-.profile-container p {
-  margin: 5px 0;
-  color: #666; /* Цвет для обычного текста */
-}
-
-.card {
-  background-color: #fff; /* Белый фон карточек */
-  border: 1px solid #e0e0e0; /* Светло-серая рамка */
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Небольшая тень */
-  margin-bottom: 20px;
+.card-header h6 {
+  margin: 0;
 }
 
 .card-body {
-  padding: 20px;
+  background-color: #ffffff;
 }
 
-.btn {
-  background-color: #007bff; /* Синий цвет для кнопок */
-  color: #fff; /* Белый цвет текста кнопок */
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
+.card-body p {
+  margin: 0 0 10px;
 }
 
-.btn:hover {
-  background-color: #0056b3; /* Изменение цвета при наведении */
+.btn-link {
+  color: #007bff;
+  text-decoration: none;
 }
 
-/* Стили для прогресс-баров */
-.progress {
-  height: 20px;
-  margin-bottom: 10px;
+.btn-link:hover {
+  text-decoration: underline;
 }
 
-.progress-bar {
-  border-radius: 5px;
+.mb-3 {
+  margin-bottom: 1rem !important;
 }
 
-/* Адаптация для мобильных устройств */
-@media (max-width: 768px) {
-  .col-lg-4 {
-    margin-bottom: 20px; /* Добавление отступа между карточками в мобильной версии */
-  }
+.mb-4 {
+  margin-bottom: 1.5rem !important;
 }
+
