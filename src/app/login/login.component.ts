@@ -22,10 +22,18 @@ export class LoginComponent {
       (response: any) => {
         console.log('Login successful!', response);
         // Check if the response contains a valid token
-        if (response && response.accessToken) {
+        if (response && response.accessToken&&response.accessToken!="The password was entered incorrectly!") {
           // Redirect to the home page after successful login
           this.router.navigate(['/home']);
-        } else {
+        } else if(response.accessToken=="The password was entered incorrectly!"){
+
+          this.errorMessage = 'Email or password incorrect';
+        }
+      else if(response.accessToken=="Account not activated!"){
+
+          this.errorMessage = 'Account not activated!';
+        }
+        else {
           // Handle login errors when the response does not contain a valid token
           console.error('Login failed: Invalid response format');
           this.errorMessage = 'Invalid response from server.';

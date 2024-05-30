@@ -17,6 +17,7 @@ import { PasswordResetComponent } from './password-reset/password-reset.componen
 import { PasswordForgottenComponent } from './password-forgotten/password-forgotten.component';
 import { PasswordChangeComponent } from './password-change/password-change.component';
 import { MailsendedComponent } from './mailsended/mailsended.component';
+import { ActivateAccComponent } from './activate-acc/activate-acc.component';
 
 
 
@@ -36,7 +37,8 @@ import { MailsendedComponent } from './mailsended/mailsended.component';
     PasswordResetComponent,
     PasswordForgottenComponent,
     PasswordChangeComponent,
-    MailsendedComponent
+    MailsendedComponent,
+    ActivateAccComponent
 
 
 

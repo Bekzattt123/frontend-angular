@@ -40,6 +40,7 @@ export class UserService {
     });
 
     // Make the HTTP POST request to update the password
-    return this.http.post(`${this.baseUrl}/update-password`, payload, { headers });
+    return this.http.post(`${this.baseUrl}/update-password`, payload, {headers, responseType: 'text' // Note the use of 'responseType'
+    }) as Observable<string>;
   }
 }

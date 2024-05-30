@@ -8,10 +8,12 @@
       <input class="register-input" type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
     </div>
     <div class="input-box button">
+
       <button class="register-button" (click)="login()">Login</button>
     </div>
   </form>
   <div class="text">
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
     <a routerLink="/register">Register</a>
     <p>   </p>
     <a routerLink="/password-forgotten">Password Forgotten?</a>

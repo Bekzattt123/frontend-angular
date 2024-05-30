@@ -40,6 +40,7 @@ export class AuthService {
     return this.authToken;
   }
 
+
   register(registrationData: {
     password: string;
     gender: string;

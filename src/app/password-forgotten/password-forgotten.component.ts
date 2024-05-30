@@ -16,8 +16,12 @@ export class PasswordForgottenComponent {
   onSubmit(): void {
     this.authService.requestPasswordReset(this.email).subscribe(
       (response: any) => {
-        alert('Письмо с инструкциями по восстановлению пароля было отправлено.');
-        this.router.navigate(['/mailsended']);
+        if(response && response.text=="success"){alert('Письмо с инструкциями по восстановлению пароля было отправлено.');
+          this.router.navigate(['/mailsended']);
+
+        }
+        else {alert('Аккаунт не существует!!!');}
+
       },
       (error: any) => {
         console.error('Ошибка:', error);

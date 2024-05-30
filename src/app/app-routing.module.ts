@@ -9,6 +9,7 @@ import {PasswordForgottenComponent} from "./password-forgotten/password-forgotte
 import {PasswordResetComponent} from "./password-reset/password-reset.component";
 import {MailsendedComponent} from "./mailsended/mailsended.component";
 import {PasswordChangeComponent} from "./password-change/password-change.component";
+import {ActivateAccComponent} from "./activate-acc/activate-acc.component";
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'recover-password/:code', component: PasswordResetComponent },
   { path: 'mailsended', component: MailsendedComponent },
   { path: 'password-change', component: PasswordChangeComponent },
+  { path: 'activate/:activationCode', component: ActivateAccComponent },
 ];
 
 @NgModule({
