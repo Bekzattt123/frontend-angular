@@ -53,4 +53,26 @@ export class AuthService {
     // Make HTTP POST request to your backend API
     return this.http.post<any>(`${this.baseUrl}/register`, registrationData);
   }
+  requestPasswordReset(email: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    return this.http.get(`${this.baseUrl}/password-forgotten/${email}`, {
+      headers,
+      responseType: 'text' // Note the use of 'responseType'
+    }) as Observable<string>;
+  }
+
+
+  resetPassword(code: string, newPassword: string, reNewPassword: string): Observable<any> {
+    const payload = {
+      newPassword: newPassword,
+      reNewPassword: reNewPassword,
+      code: code
+    };
+
+    return this.http.post(`${this.baseUrl}/recover-password`, payload,{responseType: 'text' // Note the use of 'responseType'
+    }) as Observable<string>;
+  }
 }

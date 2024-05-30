@@ -13,6 +13,13 @@ import { ProfileComponent } from './profile/profile.component';
 import {NgOptimizedImage} from "@angular/common";
 import { PdfdownloaderComponent } from './pdfdownloader/pdfdownloader.component';
 import {DataUploadService} from "./data-upload.service";
+import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { PasswordForgottenComponent } from './password-forgotten/password-forgotten.component';
+import { PasswordChangeComponent } from './password-change/password-change.component';
+import { MailsendedComponent } from './mailsended/mailsended.component';
+
+
+
 
 
 
@@ -26,6 +33,11 @@ import {DataUploadService} from "./data-upload.service";
     HeaderComponent,
     ProfileComponent,
     PdfdownloaderComponent,
+    PasswordResetComponent,
+    PasswordForgottenComponent,
+    PasswordChangeComponent,
+    MailsendedComponent
+
 
 
   ],

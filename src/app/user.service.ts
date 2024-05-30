@@ -24,4 +24,22 @@ export class UserService {
     // Make the HTTP GET request with the headers
     return this.http.get(`${this.baseUrl}/userdata`, { headers });
   }
+
+  changePassword(payload: { password: string; newPassword: string; reNewPassword: string }): Observable<any> {
+    // Get the authentication token from the AuthService
+    const authToken = this.authService.getAuthToken();
+
+    if (!authToken) {
+      throw new Error('No authentication token available.');
+    }
+
+    // Set up the request headers with the authentication token
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}` // Include the token in the headers
+    });
+
+    // Make the HTTP POST request to update the password
+    return this.http.post(`${this.baseUrl}/update-password`, payload, { headers });
+  }
 }

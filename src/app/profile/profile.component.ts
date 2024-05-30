@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { DataUploadService } from '../data-upload.service';
+import { concatMap, map } from 'rxjs/operators';
+import {from, Observable} from "rxjs";
 
 @Component({
   selector: 'app-profile',
@@ -23,41 +25,42 @@ export class ProfileComponent implements OnInit {
   }
 
   fetchUserData(): void {
-    this.userService.getUserData().subscribe(
-      (data: any) => {
+    this.userService.getUserData().pipe(
+      concatMap((data: any) => {
         console.log('Данные пользователя:', data);
         this.userData = data;
-        this.fetchAssessmentResults();
-      },
+        return this.fetchAssessmentResults(); // Возвращаем результат вызова функции fetchAssessmentResults()
+      })
+    ).subscribe(
+      () => {},
       (error: any) => {
         console.error('Ошибка при получении данных пользователя:', error);
       }
     );
   }
 
-  fetchAssessmentResults(): void {
-    this.dataUploadService.getAssessmentList().subscribe(
-      (ids: number[]) => {
+  fetchAssessmentResults(): Observable<void> {
+    return this.dataUploadService.getAssessmentList().pipe(
+      concatMap((ids: number[]) => {
         console.log('Идентификаторы оценок пользователя:', ids);
-        ids.forEach(id => {
-          this.dataUploadService.getAssessmentResult(id).subscribe(
-            (result: any) => {
-              console.log('Результат оценки', id, ':', result);
-              this.assessmentResults.push({
-                id: id,
-                data: result,
-                expanded: false // Начально все результаты свернуты
-              });
-            },
-            (error: any) => {
-              console.error('Ошибка при получении результата оценки', id, ':', error);
-            }
-          );
-        });
-      },
-      (error: any) => {
-        console.error('Ошибка при получении списка оценок:', error);
-      }
+        // Используем reverse() чтобы начать с конца массива ids
+        ids.reverse();
+        // Используем from для последовательной обработки каждого id
+        return from(ids).pipe(
+          concatMap((id: number) => {
+            return this.dataUploadService.getAssessmentResult(id).pipe(
+              map((result: any) => {
+                console.log('Результат оценки', id, ':', result);
+                this.assessmentResults.push({
+                  id: id,
+                  data: result,
+                  expanded: false // Начально все результаты свернуты
+                });
+              })
+            );
+          })
+        );
+      })
     );
   }
 
@@ -70,3 +73,5 @@ export class ProfileComponent implements OnInit {
   }
 
 }
+
+
