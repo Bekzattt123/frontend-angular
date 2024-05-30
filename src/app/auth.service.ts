@@ -50,9 +50,8 @@ export class AuthService {
     birthDate: Date | undefined;
     email: string;
     lastDiagnosis: number;
-  }): Observable<any> {
-    // Make HTTP POST request to your backend API
-    return this.http.post<any>(`${this.baseUrl}/register`, registrationData);
+  }): Observable<string> {
+    return this.http.post(`${this.baseUrl}/register`, registrationData, { responseType: 'text' });
   }
   requestPasswordReset(email: string): Observable<any> {
     const headers = new HttpHeaders({

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../auth.service'; // Импорт сервиса AuthService
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -7,17 +8,17 @@ import { AuthService } from '../auth.service'; // Импорт сервиса Au
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+  email: string = '';
+  password: string = '';
+  fullName: string = '';
+  birthDate: Date | undefined;
+  gender: string = '';
+  lastDiagnosis: number = 0;
+  contact: string = '';
+  rePassword: string = '';
+  registrationMessage: string = '';
 
-  email: string = ''; // Свойство для хранения email
-  password: string = ''; // Свойство для хранения пароля
-  fullName: string = ''; // Свойство для хранения полного имени
-  birthDate: Date | undefined; // Свойство для хранения даты рождения
-  gender: string = ''; // Свойство для хранения пола
-  lastDiagnosis: number = 0; // Свойство для хранения последнего диагноза
-  contact: string = ''; // Свойство для хранения контактной информации
-  rePassword: string = ''; // Свойство для хранения повторного ввода пароля
-
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   register(): void {
     const registrationData = {
@@ -31,15 +32,17 @@ export class RegisterComponent {
       rePassword: this.rePassword
     };
 
-    // Отправляем данные для регистрации на сервер через AuthService без ожидания ответа
     this.authService.register(registrationData).subscribe(
-      () => {
-        console.log('Registration successful!');
-        // Дополнительная логика после успешной регистрации
+      (response: string) => {
+        if(response=="New user registered?Email-error!UserExists"){
+          alert(response);
+        }else{
+        alert("Success!Activate your email!");
+        this.router.navigate(['/login']);}
       },
       (error: any) => {
         console.error('Registration failed:', error);
-        // Обработка ошибок регистрации
+        this.registrationMessage = 'Registration failed: ' + error.error;
       }
     );
   }
