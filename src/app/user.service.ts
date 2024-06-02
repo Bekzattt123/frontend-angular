@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AuthService } from './auth.service'; // Import AuthService to get the auth token
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,52 +12,43 @@ export class UserService {
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   getUserData(): Observable<any> {
-    // Get the authentication token from the AuthService
     const authToken = this.authService.getAuthToken();
-
-    // Set up the request headers with the authentication token
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${authToken}` // Include the token in the headers
+      'Authorization': `Bearer ${authToken}`
     });
-
-    // Make the HTTP GET request with the headers
     return this.http.get(`${this.baseUrl}/userdata`, { headers });
   }
 
-  updateUserData(payload: { fullName: string; birthDate: string; contact: string }): Observable<any> {
+  updateUserData(payload: { fullName: string; birthDate: string; contact: string }): Observable<string> {
     const authToken = this.authService.getAuthToken();
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${authToken}`
     });
-
-    return this.http.post(`${this.baseUrl}/user_data_update`, payload, { headers });
+    return this.http.post(`${this.baseUrl}/user_data_update`, payload, { headers, responseType: 'text' }) as Observable<string>;
   }
 
-  deleteAssessment(id: number): Observable<any> {
+  deleteAssessment(id: number): Observable<string> {
     const authToken = this.authService.getAuthToken();
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${authToken}`
     });
-
-    return this.http.delete(`${this.baseUrl}/deleteAssessment/${id}`, { headers });
+    return this.http.delete(`${this.baseUrl}/deleteAssessment/${id}`, { headers, responseType: 'text' }) as Observable<string>;
   }
 
-  deleteAssessments(ids: number[]): Observable<any> {
+  deleteAssessments(ids: number[]): Observable<string> {
     const authToken = this.authService.getAuthToken();
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${authToken}`
     });
-
     const payload = { selectedAssessmentsId: ids };
-
-    return this.http.delete(`${this.baseUrl}/deleteAssessments`, { headers, body: payload });
+    return this.http.delete(`${this.baseUrl}/deleteAssessments`, { headers, body: payload, responseType: 'text' }) as Observable<string>;
   }
 
-  changePassword(payload: { password: string; newPassword: string; reNewPassword: string }): Observable<any> {
+  changePassword(payload: { password: string; newPassword: string; reNewPassword: string }): Observable<string> {
     const authToken = this.authService.getAuthToken();
 
     if (!authToken) {
@@ -72,3 +63,4 @@ export class UserService {
     return this.http.post(`${this.baseUrl}/update-password`, payload, { headers, responseType: 'text' }) as Observable<string>;
   }
 }
+
