@@ -21,8 +21,9 @@ export class RegisterComponent {
   constructor(private authService: AuthService, private router: Router) { }
 
   register(): void {
+    const emailLowerCase = this.email.toLowerCase();
     const registrationData = {
-      email: this.email,
+      email: emailLowerCase,
       password: this.password,
       fullName: this.fullName,
       birthDate: this.birthDate,

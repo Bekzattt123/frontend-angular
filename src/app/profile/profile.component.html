@@ -20,7 +20,7 @@
               <h6 class="mb-0">Full Name</h6>
             </div>
             <div class="col-sm-9">
-              <input type="text" class="form-control" value="{{ userData.fullName }}">
+              <input type="text" class="form-control" [(ngModel)]="userData.fullName">
             </div>
           </div>
           <div class="row mb-3">
@@ -28,7 +28,7 @@
               <h6 class="mb-0">Email</h6>
             </div>
             <div class="col-sm-9">
-              <input type="text" class="form-control" value="{{ userData.email }}">
+              <input type="text" class="form-control" value="{{ userData.email }}" readonly>
             </div>
           </div>
           <div class="row mb-3">
@@ -36,7 +36,7 @@
               <h6 class="mb-0">Phone</h6>
             </div>
             <div class="col-sm-9">
-              <input type="text" class="form-control" value="{{ userData.contact }}">
+              <input type="text" class="form-control" [(ngModel)]="userData.contact">
             </div>
           </div>
           <div class="row mb-3">
@@ -53,7 +53,8 @@
           <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-9">
-              <a routerLink="/password-change">Change password</a>
+              <button class="btn btn-primary" (click)="updateUserData()">Update Profile</button>
+              <a routerLink="/password-change" class="btn btn-link">Change password</a>
             </div>
           </div>
         </div>
@@ -61,20 +62,23 @@
       <div class="card">
         <div class="card-body">
           <h5 class="d-flex align-items-center mb-3">Результаты оценок</h5>
-
-            <div *ngIf="assessmentResults.length > 0; else noResults">
-              <div *ngFor="let result of assessmentResults">
-                <div class="card mb-3">
-                  <div class="card-header d-flex justify-content-between align-items-center">
-                    <h6 class="mb-0">Результат №{{ result.id }}</h6>
-                    <button class="btn btn-link" (click)="toggleExpandResult(result.id)">
-                      {{ expandedResultId === result.id ? 'Свернуть' : 'Развернуть' }}
-                    </button>
+          <button class="btn btn-danger mb-3" (click)="deleteSelectedAssessments()" [disabled]="selectedAssessments.length === 0">Delete Selected</button>
+          <div class="overflow-auto" style="max-height: 400px;">
+            <div *ngFor="let result of assessmentResults">
+              <div class="card mb-3">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                  <div>
+                    <input type="checkbox" (change)="toggleSelection(result.id)" [checked]="selectedAssessments.includes(result.id)">
+                    <h6 class="d-inline">Результат №{{ result.id }}</h6>
                   </div>
-                  <div class="card-body" *ngIf="expandedResultId === result.id">
-                    <p><strong>Rating:</strong> {{ result.data.rating }}</p>
-                    <p><strong>Comments:</strong> {{ result.data.comments }}</p>
-                  </div>
+                  <button class="btn btn-link" (click)="toggleExpandResult(result.id)">
+                    {{ expandedResultId === result.id ? 'Свернуть' : 'Развернуть' }}
+                  </button>
+                </div>
+                <div class="card-body" *ngIf="expandedResultId === result.id">
+                  <p><strong>Rating:</strong> {{ result.data.rating }}</p>
+                  <p><strong>Comments:</strong> {{ result.data.comments }}</p>
+                  <button class="btn btn-danger btn-sm" (click)="deleteAssessment(result.id)">Delete</button>
                 </div>
               </div>
             </div>
@@ -82,7 +86,7 @@
           <ng-template #noResults>
             <p>Результаты оценок не найдены.</p>
           </ng-template>
-
+        </div>
       </div>
     </div>
   </div>
@@ -91,4 +95,7 @@
 <ng-template #loading>
   <p>Loading...</p>
 </ng-template>
+
+
+
 

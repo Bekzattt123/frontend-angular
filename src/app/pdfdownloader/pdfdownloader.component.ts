@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { DataUploadService } from '../data-upload.service';
-import { HttpErrorResponse } from '@angular/common/http';
+import {Component, EventEmitter, Output} from '@angular/core';
+import {DataUploadService} from '../data-upload.service';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-pdfdownloader',
@@ -81,9 +81,7 @@ export class PdfdownloaderComponent {
 
   async extractTextFromPDF(pdfData: ArrayBuffer): Promise<void> {
     const pdfjsLib = await import('pdfjs-dist/build/pdf');
-    const pdfjsWorker = await import('pdfjs-dist/build/pdf.worker.entry');
-
-    pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
+    pdfjsLib.GlobalWorkerOptions.workerSrc = await import('pdfjs-dist/build/pdf.worker.entry');
 
     const loadingTask = pdfjsLib.getDocument({ data: pdfData });
     const pdf = await loadingTask.promise;

@@ -2,17 +2,11 @@
   margin-top: 20px;
 }
 
-.card-header {
-  background-color: #f8f9fa;
-}
 
-.card-header h6 {
-  margin: 0;
-}
 
-.card-body {
-  background-color: #ffffff;
-}
+
+
+
 
 .card-body p {
   margin: 0 0 10px;
@@ -33,5 +27,37 @@
 
 .mb-4 {
   margin-bottom: 1.5rem !important;
+}
+.overflow-auto {
+  overflow: auto;
+}
+
+.card-header {
+  background-color: #f8f9fa;
+}
+
+.card-body {
+  background-color: #ffffff;
+}
+
+.card {
+  border: 1px solid #ddd;
+}
+
+.container.profile-container {
+  margin-top: 20px;
+}
+
+.profile-container .card-body h5 {
+  margin-bottom: 0.5rem;
+}
+
+.profile-container .card-body .btn {
+  margin-bottom: 1rem;
+}
+
+
+.container.profile-container {
+  margin-top: 20px;
 }
 

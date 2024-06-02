@@ -25,22 +25,50 @@ export class UserService {
     return this.http.get(`${this.baseUrl}/userdata`, { headers });
   }
 
+  updateUserData(payload: { fullName: string; birthDate: string; contact: string }): Observable<any> {
+    const authToken = this.authService.getAuthToken();
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    });
+
+    return this.http.post(`${this.baseUrl}/user_data_update`, payload, { headers });
+  }
+
+  deleteAssessment(id: number): Observable<any> {
+    const authToken = this.authService.getAuthToken();
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    });
+
+    return this.http.delete(`${this.baseUrl}/deleteAssessment/${id}`, { headers });
+  }
+
+  deleteAssessments(ids: number[]): Observable<any> {
+    const authToken = this.authService.getAuthToken();
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    });
+
+    const payload = { selectedAssessmentsId: ids };
+
+    return this.http.delete(`${this.baseUrl}/deleteAssessments`, { headers, body: payload });
+  }
+
   changePassword(payload: { password: string; newPassword: string; reNewPassword: string }): Observable<any> {
-    // Get the authentication token from the AuthService
     const authToken = this.authService.getAuthToken();
 
     if (!authToken) {
       throw new Error('No authentication token available.');
     }
 
-    // Set up the request headers with the authentication token
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${authToken}` // Include the token in the headers
+      'Authorization': `Bearer ${authToken}`
     });
 
-    // Make the HTTP POST request to update the password
-    return this.http.post(`${this.baseUrl}/update-password`, payload, {headers, responseType: 'text' // Note the use of 'responseType'
-    }) as Observable<string>;
+    return this.http.post(`${this.baseUrl}/update-password`, payload, { headers, responseType: 'text' }) as Observable<string>;
   }
 }

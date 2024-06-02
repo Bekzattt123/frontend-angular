@@ -14,13 +14,14 @@ export class PasswordForgottenComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit(): void {
-    this.authService.requestPasswordReset(this.email).subscribe(
+    const emailLowerCase = this.email.toLowerCase();
+    this.authService.requestPasswordReset(emailLowerCase).subscribe(
       (response: any) => {
-        if(response && response.text=="success"){alert('Письмо с инструкциями по восстановлению пароля было отправлено.');
+          alert('Письмо с инструкциями по восстановлению пароля было отправлено.');
           this.router.navigate(['/mailsended']);
 
-        }
-        else {alert('Аккаунт не существует!!!');}
+
+
 
       },
       (error: any) => {

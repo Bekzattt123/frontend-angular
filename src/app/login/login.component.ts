@@ -14,27 +14,27 @@ export class LoginComponent {
   password: string = '';
   errorMessage: string = ''; // Variable to hold error message
 
-  constructor(private authService: AuthService, private router: Router) {
-  }
+  constructor(private authService: AuthService, private router: Router) { }
 
   login(): void {
-    this.authService.login({ email: this.email, password: this.password }).subscribe(
+    // Convert email to lowercase
+    const emailLowerCase = this.email.toLowerCase();
+
+    this.authService.login({ email: emailLowerCase, password: this.password }).subscribe(
       (response: any) => {
         console.log('Login successful!', response);
-        // Check if the response contains a valid token
-        if (response && response.accessToken&&response.accessToken!="The password was entered incorrectly!") {
-          // Redirect to the home page after successful login
-          this.router.navigate(['/home']);
-        } else if(response.accessToken=="The password was entered incorrectly!"){
 
-          this.errorMessage = 'Email or password incorrect';
-        }
-      else if(response.accessToken=="Account not activated!"){
-
-          this.errorMessage = 'Account not activated!';
-        }
-        else {
-          // Handle login errors when the response does not contain a valid token
+        if (response && response.accessToken) {
+          if (response.accessToken === "The password was entered incorrectly!") {
+            this.errorMessage = 'Email or password incorrect';
+          } else if (response.accessToken === "Account not activated!") {
+            this.errorMessage = 'Account not activated!';
+          } else {
+            // Assuming any other valid token indicates a successful login
+            this.router.navigate(['/home']);
+          }
+        } else {
+          // Handle unexpected format of response
           console.error('Login failed: Invalid response format');
           this.errorMessage = 'Invalid response from server.';
         }
@@ -46,5 +46,5 @@ export class LoginComponent {
       }
     );
   }
-
 }
+

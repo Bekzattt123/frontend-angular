@@ -7,8 +7,14 @@
 </div>
 
 <div *ngIf="pdfText.length > 0" class="pdf-text-container">
-  <button (click)="uploadPdfData()">Upload Data</button>
+  <h3>Extracted Text from PDF:</h3>
+  <div class="pdf-text">
+    <p *ngFor="let text of pdfText">{{ text }}</p>
+  </div>
+  <button class="btn btn-primary" (click)="uploadPdfData()"></button>
 </div>
+
+
 
 <div *ngIf="assessmentResult" class="assessment-result">
   <h3>Assessment Result</h3>
@@ -16,6 +22,7 @@
   <p>Rating: {{ assessmentResult.rating }}</p>
   <p>Comments: {{ assessmentResult.comments }}</p>
 </div>
+
 
 
 
